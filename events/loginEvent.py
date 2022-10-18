@@ -262,90 +262,90 @@ def handle(tornadoRequest):
 
         # TODO: Rewrite this mess
         # Ainu Client 2020 update
-        if tornadoRequest.request.headers.get("ainu"):
-            log.info(f"Account {userID} tried to use Ainu Client 2020!")
-            if user_restricted:
-                responseToken.enqueue(serverPackets.notification("Nice try BUDDY."))
-            else:
-                glob.tokens.deleteToken(userID)
-                restrict_with_log(
-                    userID,
-                    "Attempted login with Ainu Client 2020",
-                    "The user has attempted to log in with a the Ainu 2020 client. "
-                    "This is a known cheating client. The user has been detected through "
-                    "the ainu header sent on login. (login gate).",
-                )
-                raise exceptions.loginCheatClientsException()
+        #if tornadoRequest.request.headers.get("ainu"):
+        #    log.info(f"Account {userID} tried to use Ainu Client 2020!")
+        #    if user_restricted:
+        #        responseToken.enqueue(serverPackets.notification("Nice try BUDDY."))
+        #    else:
+        #        glob.tokens.deleteToken(userID)
+        #        restrict_with_log(
+        #            userID,
+        #            "Attempted login with Ainu Client 2020",
+        #            "The user has attempted to log in with a the Ainu 2020 client. "
+        #            "This is a known cheating client. The user has been detected through "
+        #           "the ainu header sent on login. (login gate).",
+        #        )
+        #        raise exceptions.loginCheatClientsException()
         # Ainu Client 2019
-        elif osuVersion in (
-            "0Ainu",
-            "b20190326.2",
-            "b20190401.22f56c084ba339eefd9c7ca4335e246f80",
-            "b20191223.3",
-        ):
-            log.info(f"Account {userID} tried to use Ainu Client!")
-            if user_restricted:
-                responseToken.enqueue(serverPackets.notification("Nice try BUDDY."))
-            else:
-                glob.tokens.deleteToken(userID)
-                restrict_with_log(
-                    userID,
-                    "Attempted login with Ainu Client",
-                    "The user has attempted to log in with a client which has a version "
-                    f"matching known Ainu cheating client versions ({osuVersion}). "
-                    "(login gate)",
-                )
-                raise exceptions.loginCheatClientsException()
+        #elif osuVersion in (
+        #    "0Ainu",
+        #    "b20190326.2",
+        #    "b20190401.22f56c084ba339eefd9c7ca4335e246f80",
+        #    "b20191223.3",
+        #):
+        #    log.info(f"Account {userID} tried to use Ainu Client!")
+        #    if user_restricted:
+        #        responseToken.enqueue(serverPackets.notification("Nice try BUDDY."))
+        #    else:
+        #        glob.tokens.deleteToken(userID)
+        #        restrict_with_log(
+        #            userID,
+        #            "Attempted login with Ainu Client",
+        #            "The user has attempted to log in with a client which has a version "
+        #           f"matching known Ainu cheating client versions ({osuVersion}). "
+        #            "(login gate)",
+        #       )
+        #       raise exceptions.loginCheatClientsException()
         # hqOsu
-        elif osuVersion == "b20190226.2":
-            log.info(f"Account {userID} tried to use hqOsu!")
-            if user_restricted:
-                responseToken.enqueue(serverPackets.notification("Comedian."))
-            else:
-                glob.tokens.deleteToken(userID)
-                restrict_with_log(
-                    userID,
-                    "Attempted login with hqOsu",
-                    "The user has attempted to log in with a client version matching "
-                    f"the default setting of the hQosu multiaccounting utility ({osuVersion}). "
-                    "(login gate)",
-                )
-                raise exceptions.loginCheatClientsException()
+        #elif osuVersion == "b20190226.2":
+        #    log.info(f"Account {userID} tried to use hqOsu!")
+        #    if user_restricted:
+        #        responseToken.enqueue(serverPackets.notification("Comedian."))
+        #    else:
+        #        glob.tokens.deleteToken(userID)
+        #       restrict_with_log(
+        #            userID,
+        #            "Attempted login with hqOsu",
+        #            "The user has attempted to log in with a client version matching "
+        #            f"the default setting of the hQosu multiaccounting utility ({osuVersion}). "
+        #            "(login gate)",
+        #        )
+        #        raise exceptions.loginCheatClientsException()
 
         # hqosu legacy
-        elif osuVersion == "b20190716.5":
-            log.info(f"Account {userID} tried to use hqOsu legacy!")
-            if user_restricted:
-                responseToken.enqueue(serverPackets.notification("Comedian."))
-            else:
-                glob.tokens.deleteToken(userID)
-                restrict_with_log(
-                    userID,
-                    "Attempted login with hqOsu (legacy)",
-                    "The user has attempted to log in with a client version matching "
-                    f"the default setting of the hQosu multiaccounting utility ({osuVersion}). "
-                    "(login gate)",
-                )
-                raise exceptions.loginCheatClientsException()
+        #elif osuVersion == "b20190716.5":
+        #    log.info(f"Account {userID} tried to use hqOsu legacy!")
+        #    if user_restricted:
+        #        responseToken.enqueue(serverPackets.notification("Comedian."))
+        #   else:
+        #        glob.tokens.deleteToken(userID)
+        #        restrict_with_log(
+        #            userID,
+        #            "Attempted login with hqOsu (legacy)",
+        #           "The user has attempted to log in with a client version matching "
+        #            f"the default setting of the hQosu multiaccounting utility ({osuVersion}). "
+        #            "(login gate)",
+        #        )
+        #        raise exceptions.loginCheatClientsException()
         # Budget Hacked client.
-        elif osuVersion.startswith("skoot"):
-            if user_restricted:
-                responseToken.enqueue(serverPackets.notification("Comedian."))
-            else:
-                glob.tokens.deleteToken(userID)
-                restrict_with_log(
-                    userID,
-                    "Attempted login with Skoot client.",
-                    "The user attempted to log in with the Skoot custom client. "
-                    f"This has been detected through the osu! version sent on login ({osuVersion}). "
-                    "(login gate)",
-                )
-                raise exceptions.loginCheatClientsException()
+        #elif osuVersion.startswith("skoot"):
+        #    if user_restricted:
+        #        responseToken.enqueue(serverPackets.notification("Comedian."))
+        #    else:
+        #        glob.tokens.deleteToken(userID)
+        #        restrict_with_log(
+        #           userID,
+        #            "Attempted login with Skoot client.",
+        #            "The user attempted to log in with the Skoot custom client. "
+        #            f"This has been detected through the osu! version sent on login ({osuVersion}). "
+        #            "(login gate)",
+        #       )
+        #        raise exceptions.loginCheatClientsException()
 
         # Blanket cover for most retard clients, force update.
-        elif osuVersion[0] != "b":
-            glob.tokens.deleteToken(userID)
-            raise exceptions.haxException()
+        #elif osuVersion[0] != "b":
+        #    glob.tokens.deleteToken(userID)
+        #    raise exceptions.haxException()
 
         # Special case for old fallback client
         elif osuVersion == "20160403.6":
