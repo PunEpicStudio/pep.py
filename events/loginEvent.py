@@ -342,10 +342,10 @@ def handle(tornadoRequest):
         #       )
         #        raise exceptions.loginCheatClientsException()
 
-        # Blanket cover for most retard clients, force update.
-        #elif osuVersion[0] != "b":
-        #    glob.tokens.deleteToken(userID)
-        #    raise exceptions.haxException()
+         Blanket cover for most retard clients, force update.
+        elif osuVersion[0] != "b":
+            glob.tokens.deleteToken(userID)
+            raise exceptions.haxException()
 
         # Special case for old fallback client
         elif osuVersion == "20160403.6":
