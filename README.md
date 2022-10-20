@@ -53,3 +53,5 @@ not an exclusive to RealistikOsu pep.py. **This issue is however planned on bein
 
 Due to the lack of usage from the RealistikOsu community, the entire IRC server has essentially been nuked. This is because while not being used, it
 still took up a thread and served as dead code in the repo. Not much else to say other than that it was pretty much never used.
+## How to setup
+Coming Soon
